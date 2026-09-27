@@ -24,6 +24,8 @@ try {
     if (!html.includes('data-rendered="true"')) throw new Error("Prerender root marker missing");
     await writeFile(join(folder, "index.html"), html);
   }
+  // Keep Vite's internal manifest out of the public upload.
+  await writeFile(join("dist", ".assetsignore"), ".vite/\n");
   console.log(`Rendered ${ROUTES.length} meaningful HTML entry points.`);
 } finally {
   await server.close();

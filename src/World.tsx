@@ -1,4 +1,5 @@
 import { useEffect, useRef, useState } from "react";
+import { worldReady } from "./loader";
 import type { TableState } from "./world/table";
 
 export function World({
@@ -21,6 +22,10 @@ export function World({
   latest.current = state;
   const callbacks = useRef({ onCapture, onReady, onFold });
   callbacks.current = { onCapture, onReady, onFold };
+  // The arrival veil lifts once the table has drawn (or failed and shown its message).
+  useEffect(() => {
+    if (ready || failed) worldReady();
+  }, [ready, failed]);
   // biome-ignore lint/correctness/useExhaustiveDependencies: Retry intentionally recreates a failed renderer.
   useEffect(() => {
     let cancelled = false;

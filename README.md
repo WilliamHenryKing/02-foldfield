@@ -1,6 +1,6 @@
 # FOLDFIELD
 
-Status: unfinished implementation preserved during the visual reset, paused for handover on 26 September 2026. Three folding studies and configurator/brief journeys exist; baseline captures and audit are recorded. They are not visually accepted. Mobile/keyboard/print/final motion/package work, independent review and project-specific performance evidence remain. Resume ODD TIDE first; see ../../HANDOFF.md. Do not overwrite this work with the old tooling scaffold.
+Status: v1 complete, 27 September 2026 (D13 delivery sprint): three folding studies with configurator and brief journeys, arrival loader, checks passing. Deploy with `bun run deploy` after `bun run cloudflare:login`.
 
 Working checkout: `experiences/02-foldfield`. Repository anchor: `.repositories/02-foldfield`. Branch: `work/experience`. Preserve both directories.
 
