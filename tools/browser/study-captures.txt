@@ -1,0 +1,16 @@
+async (page) => {
+  await page.setViewportSize({width:1440,height:1000});
+  for(const study of ['rain-library','listening-pavilion','sunset-theatre']){
+    await page.goto(`http://127.0.0.1:4512/?study=${study}&fold=100&sun=${study==='sunset-theatre'?145:55}`);
+    await page.locator('.scene.ready').waitFor();
+    await page.waitForFunction(()=>getComputedStyle(document.querySelector('.table-canvas')).opacity==='1');
+    await page.waitForTimeout(400);
+    await page.screenshot({path:`output/playwright/${study}-opening.png`});
+    await page.getByRole('button',{name:'Make this place your own',exact:false}).click();
+    await page.locator('.scene.ready').waitFor();
+    await page.waitForFunction(()=>getComputedStyle(document.querySelector('.table-canvas')).opacity==='1');
+    await page.waitForTimeout(300);
+    await page.screenshot({path:`output/playwright/${study}-studio.png`});
+  }
+  return {canvas:await page.locator('canvas').count()};
+}

@@ -1,0 +1,16 @@
+# FOLDFIELD — asset reset plan
+
+The static-file baseline is in `../../assets.manifest.json`; every model/material is inventoried in capture metadata. **No new visual asset has been acquired. D02's measured local policy is adopted, but this project still needs its own asset allocations/loading and performance evidence; OFL fonts await D03.** Collection paused for handover. ODD TIDE remains first on resumption.
+
+| Family | Existing result | Next sourcing / construction decision | Status |
+|---|---|---|---|
+| Uncoated card / paper | 256² uniform bump noise, constant roughness | Compare licence-clean paper scans with colour, normal and roughness maps at macro and arm length. Establish the actual paper scale, cut fibre and scored fold reference before processing. | After resumption and project 01 completion: own allocation and look-dev first |
+| Vellum | Translucent uniform material | Reference real vellum under the chosen studio key; compare approved paper/transmission source candidates. Match edge and transmission behaviour without per-object light boosts. | Pending look-dev |
+| Metal hinges / pins | Simple cylinders with one roughness value | Reference and source a suitable small fastening kit if licence/scale fit. Otherwise author the exact hinge from documented dimensions, including seats, ends and contact. | Candidate evaluation required |
+| Three folding structures | Original parametric sheets, attached axes and fold sequence | Procedural exception justified for the parameter-driven sheet cuts, roof/span/screen variants and hinge linkage: supplied architectural models cannot preserve the domain geometry and reversible card motion. This is not permission to leave unreferenced box edges or proxy furniture as final art. | Preserve rules; reauthor physical construction |
+| Bench / steps / reader | Thin sheets that merge with the card | Reference paper model construction and real attachment details. Deliberate cut-paper scale figure may remain a stylistic choice, but section clipping must communicate scale clearly. | Review against art direction |
+| Card printing and diagrams | Original Canvas/SVG | Retain original identity and real dimensions; increase legibility through composition and lighting, not copying sourced graphics. | Existing; unaccepted |
+| Studio environment | RoomEnvironment plus key/fill | Verify existing setup with grey/mirror/chart; select one coherent environment and background. An outdoor sky is not required for a tabletop study. | Look-dev gate |
+| Fonts / posters | OFL sources and twelve original scene plates | Preserve source records, resolve D03, regenerate approved plates with original hashes. Old missing capture hashes remain explicit. | Hold |
+
+Scene coordinates express architectural dimensions; the physical scale of the paper presentation has not been documented. Resolve and record that scale in the material/look-dev work before asserting fibre size or paper thickness. Source references remain links only. Fetch/process steps belong in `tools/assets/`; glTF Transform runs through npx outside package dependencies. No complete third-party design is substituted for an original study merely to satisfy an asset-count target.

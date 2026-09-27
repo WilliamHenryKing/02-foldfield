@@ -1,0 +1,503 @@
+{
+  "schemaVersion": 1,
+  "project": "02-foldfield",
+  "status": "baseline inventory only; no visual or licence-exception approval",
+  "policy": "same-origin public assets; new originals under assets-src; budget/tier approval D02 pending",
+  "assets": [
+    {
+      "id": "public-.gitkeep",
+      "title": ".gitkeep",
+      "sourceUrl": "project:public/.gitkeep",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855",
+      "processingSteps": ["Original project SVG/code authoring"],
+      "outputFiles": [
+        {
+          "path": "public/.gitkeep",
+          "bytes": 0,
+          "sha256": "e3b0c44298fc1c149afbf4c8996fb92427ae41e4649b934ca495991b7852b855"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 0
+      },
+      "status": "historical baseline; visual acceptance withdrawn"
+    },
+    {
+      "id": "public-favicon.svg",
+      "title": "favicon.svg",
+      "sourceUrl": "project:public/favicon.svg",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": "03da7046d0ec588d04c75964da799b10dd857f4e2588b8319254f546d1a13a6e",
+      "processingSteps": ["Original project SVG/code authoring"],
+      "outputFiles": [
+        {
+          "path": "public/favicon.svg",
+          "bytes": 235,
+          "sha256": "03da7046d0ec588d04c75964da799b10dd857f4e2588b8319254f546d1a13a6e"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 235
+      },
+      "status": "historical baseline; visual acceptance withdrawn"
+    },
+    {
+      "id": "public-fonts-barlow-condensed-OFL.txt",
+      "title": "barlow-condensed-OFL.txt",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/barlowcondensed",
+      "author": "Google Fonts / Barlow authors",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "724c9c25952d5f4a2d87185d9767aa006144c5f0d944dc05bf7d5d603551c260",
+      "processingSteps": ["retained upstream source/licence"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/barlow-condensed-OFL.txt",
+          "bytes": 4377,
+          "sha256": "186d750eb496a4c17a76385f82be6aea2ac1cf2de074a811d63786cf374ea73f"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 4377
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-barlow-condensed.ttf",
+      "title": "barlow-condensed.ttf",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/barlowcondensed",
+      "author": "Google Fonts / Barlow authors",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "724c9c25952d5f4a2d87185d9767aa006144c5f0d944dc05bf7d5d603551c260",
+      "processingSteps": ["retained upstream source/licence"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/barlow-condensed.ttf",
+          "bytes": 110296,
+          "sha256": "724c9c25952d5f4a2d87185d9767aa006144c5f0d944dc05bf7d5d603551c260"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 110296
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-barlow-condensed.woff2",
+      "title": "barlow-condensed.woff2",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/barlowcondensed",
+      "author": "Google Fonts / Barlow authors",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "724c9c25952d5f4a2d87185d9767aa006144c5f0d944dc05bf7d5d603551c260",
+      "processingSteps": ["fontTools WOFF2 conversion"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/barlow-condensed.woff2",
+          "bytes": 39416,
+          "sha256": "68f7b5e160cdf424dcd0a6f959a516eb2eb43431ef4c3579bdfbe46ce1e72571"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 39416
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-ibm-plex-mono-OFL.txt",
+      "title": "ibm-plex-mono-OFL.txt",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/ibmplexmono",
+      "author": "IBM / Google Fonts",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "processingSteps": ["retained upstream source/licence"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/ibm-plex-mono-OFL.txt",
+          "bytes": 4456,
+          "sha256": "7e6b2818edbd8f6a01ae80641cc8f16a51080d08fb4e532be3a0b6f74adb07da"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 4456
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-ibm-plex-mono.ttf",
+      "title": "ibm-plex-mono.ttf",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/ibmplexmono",
+      "author": "IBM / Google Fonts",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "processingSteps": ["retained upstream source/licence"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/ibm-plex-mono.ttf",
+          "bytes": 135580,
+          "sha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 135580
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-ibm-plex-mono.woff2",
+      "title": "ibm-plex-mono.woff2",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/ibmplexmono",
+      "author": "IBM / Google Fonts",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "6a3412f058c7d8dfd9170c41e85ade48e5156ecb89356110ca57a0a27734af46",
+      "processingSteps": ["fontTools WOFF2 conversion"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/ibm-plex-mono.woff2",
+          "bytes": 39136,
+          "sha256": "6a5495c3ccd97f8a26c76bf434c1b6cd9000c4f0bae88482c2f8fa4c4c77fdbe"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 39136
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-space-grotesk-OFL.txt",
+      "title": "space-grotesk-OFL.txt",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/spacegrotesk",
+      "author": "Google Fonts / Space Grotesk authors",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "processingSteps": ["retained upstream source/licence"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/space-grotesk-OFL.txt",
+          "bytes": 4495,
+          "sha256": "564ce565c371c5e5bbf286006565a7c9aa55a9f56e7ca58d56e05d649dd61a72"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 4495
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-space-grotesk.ttf",
+      "title": "space-grotesk.ttf",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/spacegrotesk",
+      "author": "Google Fonts / Space Grotesk authors",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "processingSteps": ["retained upstream source/licence"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/space-grotesk.ttf",
+          "bytes": 136676,
+          "sha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 136676
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-fonts-space-grotesk.woff2",
+      "title": "space-grotesk.woff2",
+      "sourceUrl": "https://github.com/google/fonts/tree/main/ofl/spacegrotesk",
+      "author": "Google Fonts / Space Grotesk authors",
+      "license": "SIL Open Font License 1.1",
+      "retrievalDate": "2026-09-26",
+      "originalSha256": "acad6de1fc93436f5c0f1f4137751ef04f1aea3063e7036535970ffcfbd79f72",
+      "processingSteps": ["fontTools WOFF2 conversion"],
+      "outputFiles": [
+        {
+          "path": "public/fonts/space-grotesk.woff2",
+          "bytes": 49252,
+          "sha256": "5b64c3416fa7f876516c848f3246177d448aeb4af91e8d50d324078db1c64e78"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 49252
+      },
+      "status": "historical verified source; D03 exception pending"
+    },
+    {
+      "id": "public-plates-listening-pavilion-flat-phone.jpg",
+      "title": "listening-pavilion-flat-phone.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/listening-pavilion-flat-phone.jpg",
+          "bytes": 11828,
+          "sha256": "616165f454070f3320aa60302cc929d55639946bd7069141e28f19e5c6bb1d1b"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 11828
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-listening-pavilion-flat.jpg",
+      "title": "listening-pavilion-flat.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/listening-pavilion-flat.jpg",
+          "bytes": 41921,
+          "sha256": "e5ad5ce2848b942d8f4f1ce1fe52143690bfc9f9407b8200522758d7db2d8db6"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 41921
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-listening-pavilion-open-phone.jpg",
+      "title": "listening-pavilion-open-phone.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/listening-pavilion-open-phone.jpg",
+          "bytes": 21717,
+          "sha256": "0c8cf849eaae20b516fe458dcc72aaae743a938338656534c99e0b3542a9689d"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 21717
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-listening-pavilion-open.jpg",
+      "title": "listening-pavilion-open.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/listening-pavilion-open.jpg",
+          "bytes": 90022,
+          "sha256": "90d68d4cabf0d60160017eb9ac4861a973b78138746ceb71de78f77d2a3e97f0"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 90022
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-rain-library-flat-phone.jpg",
+      "title": "rain-library-flat-phone.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/rain-library-flat-phone.jpg",
+          "bytes": 12942,
+          "sha256": "3ade676aae897b7beb49b1b7f45f12037140a971b2339fa1f41339ad8bf6bcb2"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 12942
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-rain-library-flat.jpg",
+      "title": "rain-library-flat.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/rain-library-flat.jpg",
+          "bytes": 45503,
+          "sha256": "d1a2dcc27ae3aa1d63dfc419cab71b7418c87dc673219e0f981caac8e21bde7f"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 45503
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-rain-library-open-phone.jpg",
+      "title": "rain-library-open-phone.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/rain-library-open-phone.jpg",
+          "bytes": 24609,
+          "sha256": "6e617665fae56d865570eae10cfecebedabddc87d7eb257087886dbe5798800f"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 24609
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-rain-library-open.jpg",
+      "title": "rain-library-open.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/rain-library-open.jpg",
+          "bytes": 99838,
+          "sha256": "e94d059425212d1211eda8d05e455b84d0d87bd779aaef5a5b10187ad7108fa2"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 99838
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-sunset-theatre-flat-phone.jpg",
+      "title": "sunset-theatre-flat-phone.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/sunset-theatre-flat-phone.jpg",
+          "bytes": 13462,
+          "sha256": "d2266b181581947e29c19f9f269af534da7710098d9067546be90e5ff4ca3010"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 13462
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-sunset-theatre-flat.jpg",
+      "title": "sunset-theatre-flat.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/sunset-theatre-flat.jpg",
+          "bytes": 46969,
+          "sha256": "f38c6b02eb49b30b46ac44f5899fd5f80c735eec5b28d6c97da0ef34c0feecfe"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 46969
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-sunset-theatre-open-phone.jpg",
+      "title": "sunset-theatre-open-phone.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/sunset-theatre-open-phone.jpg",
+          "bytes": 25912,
+          "sha256": "02ff560eb9044f847d900714f7cdaa60125d3d6ba508266a2fb5863274f54d39"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 25912
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    },
+    {
+      "id": "public-plates-sunset-theatre-open.jpg",
+      "title": "sunset-theatre-open.jpg",
+      "sourceUrl": "project:src/world/table.ts",
+      "author": "Original commissioned project work",
+      "license": "Original project artwork; no third-party asset licence",
+      "retrievalDate": null,
+      "originalSha256": null,
+      "processingSteps": ["Browser scene capture", "JPEG conversion for saved-view fallback"],
+      "outputFiles": [
+        {
+          "path": "public/plates/sunset-theatre-open.jpg",
+          "bytes": 95398,
+          "sha256": "0d2f3eb218a423ee71e5109e484364ebee1fa579667384a69ca9490df9205c9e"
+        }
+      ],
+      "bytesPerTier": {
+        "existing": 95398
+      },
+      "status": "historical baseline; visual acceptance withdrawn",
+      "provenanceGap": "Exact pre-reset raw-image hash was not recorded in this manifest. Do not invent it; regenerate under the new capture pipeline before revised delivery."
+    }
+  ]
+}

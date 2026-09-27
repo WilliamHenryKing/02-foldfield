@@ -1,6 +1,6 @@
 # FOLDFIELD
 
-Status: planned; isolated development environment. No project artwork or features implemented yet.
+Status: unfinished implementation preserved during the visual reset, paused for handover on 26 September 2026. Three folding studies and configurator/brief journeys exist; baseline captures and audit are recorded. They are not visually accepted. Mobile/keyboard/print/final motion/package work, independent review and project-specific performance evidence remain. Resume ODD TIDE first; see ../../HANDOFF.md. Do not overwrite this work with the old tooling scaffold.
 
 Working checkout: `experiences/02-foldfield`. Repository anchor: `.repositories/02-foldfield`. Branch: `work/experience`. Preserve both directories.
 
@@ -16,8 +16,8 @@ bun run preview
 Development: http://127.0.0.1:4512/
 Preview: http://127.0.0.1:4612/
 
-The current dev/build scripts run a **development-only smoke harness** in `development/`; output is `dist-smoke/`. It verifies React, Three.js, GSAP and CSS tooling. It is not a portfolio page. Creative production will add the real source and a production build in `dist/`.
+The current `dev` / `build` / `preview` scripts run the unfinished application in `src/`; `build` emits `dist/` and runs `tools/prerender.ts`. The original tooling screen remains available through `dev:smoke` / `build:smoke` in `development/`, emitting `dist-smoke/`. Its checks are separate from the application's visual acceptance.
 
 Each project owns its dependencies and lockfile. Tailwind uses its Vite plugin; Lightning CSS performs final CSS minification. No shared visual runtime or sibling imports.
 
-Read the collection plan for this project's full creative and completion requirements. Design and asset documents are created when its serial production turn begins. All commercial content will be fictional and local-only.
+Read the existing DESIGN.md, ASSET-REGISTER.md and docs/visual/ documents alongside the collection plan. Those records and baseline captures already exist; preserve them. This worktree contains uncommitted creative/reset source. All commercial content is fictional and local-only. Do not resume this project's creative production until ODD TIDE is finished.

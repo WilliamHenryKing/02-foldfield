@@ -1,0 +1,51 @@
+async (page) => {
+  const base='http://127.0.0.1:4612',checks=[];
+  const assert=(ok,name)=>{if(!ok)throw new Error(name);checks.push(name);};
+  const probe=await page.context().newPage();
+  try{
+    await probe.setViewportSize({width:1440,height:1000});
+    await probe.addInitScript(()=>{window.__draws=0;for(const name of ['drawElements','drawArrays','drawElementsInstanced','drawArraysInstanced']){const original=WebGL2RenderingContext.prototype[name];WebGL2RenderingContext.prototype[name]=function(...args){window.__draws++;return original.apply(this,args);};}});
+    await probe.goto(base+'/studio?study=listening-pavilion&fold=100&wind=80');await probe.locator('.scene.ready').waitFor();
+    let before=await probe.evaluate(()=>window.__draws);await probe.waitForTimeout(350);
+    assert(await probe.evaluate(()=>window.__draws)>before,'Wind sails render actual changing WebGL frames');
+    await probe.getByRole('button',{name:'Pause the atmosphere',exact:true}).click();await probe.evaluate(()=>scrollTo(0,0));await probe.waitForTimeout(500);
+    before=await probe.evaluate(()=>window.__draws);await probe.waitForTimeout(350);
+    assert(await probe.evaluate(()=>window.__draws)===before,'Pause stops atmosphere GPU draws while the scene is visible');
+    await probe.getByRole('button',{name:'Resume the atmosphere',exact:true}).click();await probe.evaluate(()=>scrollTo(0,0));await probe.waitForTimeout(200);
+    before=await probe.evaluate(()=>window.__draws);await probe.waitForTimeout(350);
+    assert(await probe.evaluate(()=>window.__draws)>before,'Resume restarts visible sail motion');
+    await probe.getByRole('contentinfo').scrollIntoViewIfNeeded();await probe.waitForTimeout(350);
+    before=await probe.evaluate(()=>window.__draws);await probe.waitForTimeout(350);
+    assert(await probe.evaluate(()=>window.__draws)===before,'Offscreen world stops GPU draws');
+    await probe.evaluate(()=>scrollTo(0,0));await probe.waitForTimeout(200);
+    await probe.evaluate(()=>document.querySelector('.table-canvas').getContext('webgl2').getExtension('WEBGL_lose_context').loseContext());
+    await probe.locator('.scene.failed').waitFor();
+    assert(await probe.locator('.scene-poster img').evaluate(img=>img.complete&&img.naturalWidth>0),'Context loss preserves a real scene poster');
+    await probe.screenshot({path:'output/playwright/context-loss.png'});
+    await probe.getByRole('button',{name:'Try the model again',exact:false}).click();await probe.locator('.scene.ready:not(.failed)').waitFor();
+    assert(await probe.locator('canvas').count()===1,'Retry recreates exactly one working canvas');
+    await probe.evaluate(()=>Object.defineProperty(window,'localStorage',{configurable:true,get(){throw new DOMException('Storage disabled for review','SecurityError');}}));
+    await probe.getByRole('button',{name:'Save on this device',exact:true}).click();
+    await probe.getByRole('status').filter({hasText:'Saving is unavailable'}).waitFor();
+    assert(await probe.getByRole('button',{name:'Make my project brief',exact:false}).isEnabled(),'Storage denial leaves brief creation usable and explains recovery');
+    await probe.emulateMedia({reducedMotion:'reduce'});await probe.goto(base+'/studio?fold=0');await probe.locator('.scene.ready').waitFor();
+    assert(await probe.getByRole('button',{name:'Gentle motion on',exact:true}).getAttribute('aria-pressed')==='true','System reduced-motion preference is respected');
+    await probe.getByRole('button',{name:'Pull to make a place',exact:true}).click();await probe.waitForFunction(()=>Number(document.querySelector('.scene-mount')?.dataset.fold)===100);
+    assert(true,'Reduced motion preserves meaningful unfolding');
+  }catch(error){await probe.screenshot({path:'output/playwright/recovery-failure.png',fullPage:true});return {checks,failure:error.message};}
+  finally{await probe.close();}
+  const fallback=await page.context().newPage();
+  try{
+    await fallback.setViewportSize({width:1440,height:1000});
+    await fallback.addInitScript(()=>{const original=HTMLCanvasElement.prototype.getContext;HTMLCanvasElement.prototype.getContext=function(kind,...args){if(kind==='webgl2'||kind==='webgl'||kind==='experimental-webgl')return null;return original.call(this,kind,...args);};});
+    await fallback.goto(base+'/studio?span=4.8&roof=8&panel=open&fold=100');await fallback.locator('.scene.failed').waitFor();
+    assert(await fallback.locator('.scene-poster img').evaluate(img=>img.complete&&img.naturalWidth>0),'Missing WebGL uses an actual saved study image');
+    await fallback.getByLabel('Clear span',{exact:false}).fill('4.4');
+    assert((await fallback.locator('.drawings').innerText()).includes('4.4 m'),'Drawings still configure without WebGL');
+    await fallback.getByRole('button',{name:'Make my project brief',exact:false}).click();await fallback.locator('.scene.failed').waitFor();
+    assert((await fallback.locator('.brief-copy').innerText()).includes('4.4 m'),'Fallback journey reaches a truthful configured brief');
+    const event=fallback.waitForEvent('download');await fallback.getByRole('button',{name:'Download the postcard',exact:false}).click();const download=await event;await download.saveAs('output/playwright/postcard-fallback.png');
+    assert(await download.failure()===null,'Fallback postcard downloads with the saved-view qualification');
+  }catch(error){return {checks,failure:error.message};}finally{await fallback.close();}
+  return {checks,scope:'Browser instrumentation, forced failure and reduced-motion emulation. No physical-device or audio review is implied; this project is silent.'};
+}

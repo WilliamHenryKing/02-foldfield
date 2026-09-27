@@ -1,0 +1,18 @@
+async (page) => {
+  await page.setViewportSize({width:1440,height:1000});
+  await page.goto('http://127.0.0.1:4512/');
+  await page.locator('.scene.ready').waitFor();
+  await page.waitForFunction(()=>getComputedStyle(document.querySelector('.table-canvas')).opacity==='1');
+  await page.getByRole('button',{name:'Gentle motion',exact:true}).click();
+  const slider=page.getByLabel('UNFOLD',{exact:false});
+  for(const value of [0,45,72,100]){
+    await slider.fill(String(value));await page.evaluate(()=>window.scrollTo(0,0));await page.waitForTimeout(250);
+    await page.screenshot({path:`output/playwright/proof-fold-${value}.png`});
+  }
+  await page.getByRole('button',{name:'Paper prototype',exact:true}).click();await page.evaluate(()=>window.scrollTo(0,0));await page.waitForTimeout(250);
+  await page.screenshot({path:'output/playwright/proof-translucent.png'});
+  await page.getByRole('button',{name:'Paper prototype',exact:true}).click();
+  await page.getByLabel('Sun',{exact:false}).fill('145');await page.evaluate(()=>window.scrollTo(0,0));await page.waitForTimeout(250);
+  await page.screenshot({path:'output/playwright/proof-raking-light.png'});
+  return {ready:await page.locator('.scene.ready').count(),canvasCount:await page.locator('canvas').count()};
+}

@@ -1,0 +1,73 @@
+async (page) => {
+  const base='http://127.0.0.1:4612',checks=[],errors=[],routes=[];
+  const assert=(condition,name)=>{if(!condition)throw new Error(name);checks.push(name);};
+  const onError=error=>errors.push(error.message);page.on('pageerror',onError);
+  const settled=async()=>{await page.locator('.scene.ready').waitFor();await page.waitForFunction(()=>getComputedStyle(document.querySelector('.table-canvas')).opacity==='1');};
+  const foldAt=async value=>{await page.waitForFunction(value=>Math.abs(Number(document.querySelector('.scene-mount')?.dataset.fold)-value)<.03,value);};
+  try{
+    await page.setViewportSize({width:1440,height:1000});
+    for(const route of ['/','/studio','/brief','/about','/a-lost-card']){
+      const response=await page.goto(base+route);await page.getByRole('heading',{level:1}).waitFor();
+      if(['/', '/studio', '/brief'].includes(route))await settled();
+      routes.push({route,status:response.status(),heading:await page.getByRole('heading',{level:1}).innerText()});
+    }
+    assert(routes[4].status===404,'Unknown clean URL returns the actual 404 page');
+    assert(errors.length===0,'Production routes hydrate without runtime errors');
+    await page.goto(base+'/');await settled();await foldAt(100);
+    assert(true,'A fresh arrival unfolds into the actual place');
+    await page.getByRole('button',{name:'Fold it away',exact:true}).click();await foldAt(0);await page.evaluate(()=>scrollTo(0,0));
+    await page.screenshot({path:'output/playwright/final-flat.png'});
+    await page.mouse.click(489,752);await foldAt(100);
+    assert(true,'The actual 3D pull tab opens the model by raycast');
+    await page.getByRole('button',{name:'Fold it away',exact:true}).click();
+    await page.getByRole('button',{name:'Pull to make a place',exact:true}).click();await foldAt(100);
+    assert(await page.locator('canvas').count()===1,'Rapid fold reversal retains one canvas and resolves open');
+    await page.getByRole('button',{name:'Make this place your own',exact:false}).click();await settled();
+    await page.getByRole('button',{name:'Try the shelter challenge',exact:false}).click();
+    await page.getByRole('button',{name:'Test my shelter',exact:true}).click();
+    assert(await page.locator('.challenge-feedback').isVisible(),'An insufficient shelter explains the failure');
+    for(let i=0;i<3;i++)await page.getByRole('button',{name:'A small hint',exact:true}).click();
+    assert((await page.locator('.hint').innerText()).includes('4.8 m'),'Progressive hints reach a usable geometric solution');
+    await page.getByLabel('Clear span', {exact:false}).fill('4.8');
+    await page.getByLabel('Roof rise', {exact:false}).fill('8');
+    await page.getByLabel('Side screens',{exact:true}).selectOption('open');
+    await page.getByRole('button',{name:'Test my shelter',exact:true}).click();
+    assert(await page.locator('.earned-stamp').isVisible(),'A genuinely dry and open configuration earns the ending');
+    await page.screenshot({path:'output/playwright/challenge-ending.png',fullPage:true});
+    await page.getByRole('button',{name:'Save on this device',exact:true}).click();
+    await page.getByLabel('Clear span',{exact:false}).fill('2.4');
+    await page.getByRole('button',{name:'Restore a postcard',exact:true}).click();
+    assert(await page.getByLabel('Clear span',{exact:false}).inputValue()==='4.8','Saved configuration restores the span');
+    assert((await page.locator('.drawings').innerText()).includes('4.8 m clear span'),'The plan updates to the same configuration');
+    for(const name of ['The plan','The section','Inhabit','The object']){
+      await page.getByRole('button',{name,exact:true}).click();await page.waitForTimeout(1250);
+      assert(await page.getByRole('button',{name,exact:true}).getAttribute('aria-pressed')==='true',name+' is selectable');
+      await page.evaluate(()=>scrollTo(0,0));await page.screenshot({path:`output/playwright/view-${name.toLowerCase().replaceAll(' ','-')}.png`});
+    }
+    await page.getByRole('button',{name:'Make my project brief',exact:false}).click();await settled();
+    assert((await page.locator('.brief-copy').innerText()).includes('4.8 m'),'The completed brief preserves selected dimensions');
+    const downloadEvent=page.waitForEvent('download');await page.getByRole('button',{name:'Download the postcard',exact:false}).click();
+    const download=await downloadEvent;await download.saveAs('output/playwright/postcard.png');
+    assert(await download.failure()===null,'A real configured PNG postcard downloads');
+    await page.screenshot({path:'output/playwright/brief-final.png',fullPage:true});
+    await page.getByRole('button',{name:'Back to my design',exact:true}).click();await settled();
+    assert(await page.getByLabel('Roof rise',{exact:false}).inputValue()==='8','Brief return retains roof choice');
+    await page.goBack();await page.getByRole('heading',{name:'Yours to unfold.',exact:false}).waitFor();
+    assert(page.url().includes('/brief?'),'Browser back returns to the previous brief');
+    await page.getByRole('button',{name:'Back to my design',exact:true}).click();await settled();
+    for(const study of [{id:'listening-pavilion',name:'The Listening Pavilion'},{id:'sunset-theatre',name:'The Sunset Theatre'}]){
+      await page.getByRole('button',{name:study.name,exact:true}).click();
+      await page.waitForFunction(id=>document.querySelector('.scene-mount')?.dataset.study===id,study.id);await foldAt(100);
+      if(study.id==='listening-pavilion')await page.getByLabel('Breeze',{exact:false}).fill('80');
+      else await page.getByLabel('Canopy rise',{exact:false}).fill('28');
+      await page.getByRole('button',{name:'Fold it away',exact:true}).click();await foldAt(0);
+      await page.getByRole('button',{name:'Pull to make a place',exact:true}).click();await foldAt(100);
+      await page.getByRole('button',{name:'Make my project brief',exact:false}).click();await settled();
+      assert((await page.locator('.brief-copy').innerText()).includes(study.name),study.name+' has its own completed brief');
+      await page.getByRole('button',{name:'Back to my design',exact:true}).click();await settled();
+    }
+    assert(errors.length===0,'Complete journeys and folding transitions have no runtime errors');
+    return {checks,routes,errors,browser:await page.evaluate(()=>navigator.userAgent)};
+  }catch(error){await page.screenshot({path:'output/playwright/journey-failure.png',fullPage:true});return {checks,routes,errors,failure:error.message,url:page.url()};}
+  finally{page.off('pageerror',onError);}
+}

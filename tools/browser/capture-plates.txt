@@ -1,0 +1,18 @@
+async (page) => {
+  const results=[];
+  for(const width of [1440,390]){
+    await page.setViewportSize({width,height:width===1440?1000:844});
+    for(const study of ['rain-library','listening-pavilion','sunset-theatre'])for(const fold of [0,100]){
+      await page.goto(`http://127.0.0.1:4512/?study=${study}&fold=${fold}&sun=${study==='sunset-theatre'?145:55}`);
+      await page.locator('.scene.ready').waitFor();
+      await page.waitForFunction(()=>getComputedStyle(document.querySelector('.table-canvas')).opacity==='1');
+      await page.waitForTimeout(250);
+      const name=`${study}-${fold===0?'flat':'open'}${width===390?'-phone':''}`;
+      await page.locator('canvas').screenshot({path:`output/playwright/${name}-plate.png`});
+      await page.evaluate(()=>window.scrollTo(0,0));
+      await page.screenshot({path:`output/playwright/${name}-page.png`});
+      results.push({name,overflow:await page.evaluate(()=>document.documentElement.scrollWidth-innerWidth)});
+    }
+  }
+  return results;
+}

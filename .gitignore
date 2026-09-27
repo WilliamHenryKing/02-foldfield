@@ -10,3 +10,6 @@ output/
 *.log
 *.tsbuildinfo
 .DS_Store
+
+# Untouched source downloads; reproduce from assets.manifest.json and tools/assets.
+assets-src/
